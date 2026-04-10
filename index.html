@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光伏遮阳增程系统 - 控制端</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,'Microsoft YaHei',sans-serif}
+        body{background:#0b1220;color:#e6edf3;padding:20px}
+        .container{max-width:900px;margin:0 auto;background:#121a29;border-radius:16px;padding:24px;box-shadow:0 0 30px #0005}
+        .title{text-align:center;font-size:24px;margin-bottom:24px;color:#4fc3ff}
+        .panel{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+        .card{background:#1b263b;padding:16px;border-radius:12px}
+        .card h3{font-size:14px;color:#9cb8d7;margin-bottom:8px}
+        .card .num{font-size:22px;color:#4afcff}
+        .control{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        button{padding:16px;border:none;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer}
+        .btn-open{background:#009dff;color:white}
+        .btn-close{background:#ff4d6d;color:white}
+        .status{margin-top:20px;padding:16px;background:#1b263b;border-radius:12px;text-align:center}
+        .status-text{font-size:18px;color:#fff}
+        .label{color:#9cb8d7;font-size:14px}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="title">光驭未来 - 光伏遮阳增程系统 控制端</div>
+
+    <div class="panel">
+        <div class="card">
+            <h3>当前光伏功率</h3>
+            <div class="num">52.8 W</div>
+        </div>
+        <div class="card">
+            <h3>车顶温度</h3>
+            <div class="num">32.4 ℃</div>
+        </div>
+        <div class="card">
+            <h3>今日发电量</h3>
+            <div class="num">0.82 kWh</div>
+        </div>
+        <div class="card">
+            <h3>增加续航</h3>
+            <div class="num">18.6 km</div>
+        </div>
+    </div>
+
+    <div class="control">
+        <button class="btn-open" onclick="openMode()">停车遮阳 + 发电</button>
+        <button class="btn-close" onclick="closeMode()">行车折叠模式</button>
+    </div>
+
+    <div class="status">
+        <div class="label">系统状态</div>
+        <div class="status-text" id="status">待机</div>
+    </div>
+</div>
+
+<script>
+    function openMode(){
+        document.getElementById("status").innerText="已展开 → 遮阳+发电中"
+        document.getElementById("status").style.color="#00e573"
+    }
+    function closeMode(){
+        document.getElementById("status").innerText="已折叠 → 行车模式"
+        document.getElementById("status").style.color="#ffd60a"
+    }
+</script>
+</body>
+</html>
